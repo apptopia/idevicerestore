@@ -3,6 +3,7 @@
  * support for .fls file format (found in .bbfw files)
  *
  * Copyright (c) 2012 Nikias Bassen. All Rights Reserved.
+ * Copryight (c) 2016 Quamotion bvba. All Rights Reserved.
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -23,14 +24,16 @@
 
 #include <stdint.h>
 
+PACK(
 struct _fls_element {
 	uint32_t type;
 	uint32_t size;
 	uint32_t empty;
 	const unsigned char* data;
-} __attribute__((packed));
+});
 typedef struct _fls_element fls_element;
 
+PACK(
 struct _fls_0c_element {
 	uint32_t type;
 	uint32_t size;
@@ -43,9 +46,10 @@ struct _fls_0c_element {
 	uint32_t off_0x20;
 	uint32_t offset; // absolute offset of data in file
 	const unsigned char* data; // data+0x14 contains offset to sig blob
-} __attribute__((packed));
+});
 typedef struct _fls_0c_element fls_0c_element;
 
+PACK(
 struct _fls_10_element {
 	uint32_t type;
 	uint32_t size;
@@ -54,9 +58,10 @@ struct _fls_10_element {
 	uint32_t off_0x10;
 	uint32_t offset;
 	const unsigned char* data;
-} __attribute__((packed));
+});
 typedef struct _fls_10_element fls_10_element;
 
+PACK(
 struct _fls_14_element {
 	uint32_t type;
 	uint32_t size;
@@ -65,7 +70,7 @@ struct _fls_14_element {
 	uint32_t off_0x10;
 	uint32_t offset;
 	const unsigned char* data;
-} __attribute__((packed));
+});
 typedef struct _fls_14_element fls_14_element;
 
 typedef struct {
