@@ -1,0 +1,14 @@
+before_build:
+  - nuget restore
+
+build_script:
+  - msbuild idevicerestore.sln /p:Configuration=Debug /p:Platform=Win32 /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+  - msbuild idevicerestore.sln /p:Configuration=Release /p:Platform=Win32 /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+  - msbuild idevicerestore.sln /p:Configuration=Debug /p:Platform=x64 /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+  - msbuild idevicerestore.sln /p:Configuration=Release /p:Platform=x64 /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+
+on_success:
+  - cmd: 7z a -tzip "idevicerestore-1.0.%APPVEYOR_BUILD_NUMBER%-windows-x86.zip" .\Win32\Release\*.exe .\Win32\Release\*.dll
+  - cmd: 7z a -tzip "idevicerestore-1.0.%APPVEYOR_BUILD_NUMBER%-windows-x64.zip" .\x64\Release\*.exe .\x64\Release\*.dll
+  - cmd: appveyor PushArtifact idevicerestore-1.0.%APPVEYOR_BUILD_NUMBER%-windows-x86.zip
+  - cmd: appveyor PushArtifact idevicerestore-1.0.%APPVEYOR_BUILD_NUMBER%-windows-x64.zip
