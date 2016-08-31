@@ -1,5 +1,7 @@
+*.suo
 *.VC.db
 *.VC.opendb
+packages/
 x64/
 Win32/
 *.patch
