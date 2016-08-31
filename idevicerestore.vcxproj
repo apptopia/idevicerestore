@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\fix8.dependencies.getopt.1.0.20151130.1\build\native\fix8.dependencies.getopt.props" Condition="Exists('packages\fix8.dependencies.getopt.1.0.20151130.1\build\native\fix8.dependencies.getopt.props')" />
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -198,6 +199,7 @@
     <Import Project="packages\libimobiledevice.1.2.0.58\build\native\libimobiledevice.targets" Condition="Exists('packages\libimobiledevice.1.2.0.58\build\native\libimobiledevice.targets')" />
     <Import Project="packages\libirecovery.redist.0.1.1.14\build\native\libirecovery.redist.targets" Condition="Exists('packages\libirecovery.redist.0.1.1.14\build\native\libirecovery.redist.targets')" />
     <Import Project="packages\libirecovery.0.1.1.14\build\native\libirecovery.targets" Condition="Exists('packages\libirecovery.0.1.1.14\build\native\libirecovery.targets')" />
+    <Import Project="packages\fix8.dependencies.getopt.1.0.20151130.1\build\native\fix8.dependencies.getopt.targets" Condition="Exists('packages\fix8.dependencies.getopt.1.0.20151130.1\build\native\fix8.dependencies.getopt.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -229,5 +231,7 @@
     <Error Condition="!Exists('packages\libimobiledevice.1.2.0.58\build\native\libimobiledevice.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\libimobiledevice.1.2.0.58\build\native\libimobiledevice.targets'))" />
     <Error Condition="!Exists('packages\libirecovery.redist.0.1.1.14\build\native\libirecovery.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\libirecovery.redist.0.1.1.14\build\native\libirecovery.redist.targets'))" />
     <Error Condition="!Exists('packages\libirecovery.0.1.1.14\build\native\libirecovery.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\libirecovery.0.1.1.14\build\native\libirecovery.targets'))" />
+    <Error Condition="!Exists('packages\fix8.dependencies.getopt.1.0.20151130.1\build\native\fix8.dependencies.getopt.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\fix8.dependencies.getopt.1.0.20151130.1\build\native\fix8.dependencies.getopt.props'))" />
+    <Error Condition="!Exists('packages\fix8.dependencies.getopt.1.0.20151130.1\build\native\fix8.dependencies.getopt.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\fix8.dependencies.getopt.1.0.20151130.1\build\native\fix8.dependencies.getopt.targets'))" />
   </Target>
 </Project>
