@@ -23,6 +23,7 @@
 #define FLS_H
 
 #include <stdint.h>
+#include "msc_compat.h"
 
 PACK(
 struct _fls_element {
