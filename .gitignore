@@ -1,3 +1,7 @@
+*.VC.db
+*.VC.opendb
+x64/
+Win32/
 *.patch
 *.diff
 .*.swp
