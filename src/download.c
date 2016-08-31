@@ -27,6 +27,10 @@
 #include "download.h"
 #include "common.h"
 
+#ifdef _MSC_VER
+#include "msc_compat.h"
+#endif
+
 typedef struct {
 	int length;
 	char* content;

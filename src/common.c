@@ -34,6 +34,10 @@
 
 #include "common.h"
 
+#ifdef _MSC_VER
+#include "msc_compat.h"
+#endif
+
 #define MAX_PRINT_LEN 64*1024
 
 struct idevicerestore_mode_t idevicerestore_modes[] = {
