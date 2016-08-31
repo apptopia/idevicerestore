@@ -122,8 +122,12 @@ char *generate_guid(void);
 
 #ifdef WIN32
 #include <windows.h>
+#ifndef _MSC_VER
 #include <unistd.h>
 #define __mkdir(path, mode) mkdir(path)
+#else
+#define __mkdir(path, mode) CreateDirectory(path, NULL)
+#endif
 #define FMT_qu "%I64u"
 #ifndef sleep
 #define sleep(x) Sleep(x*1000)

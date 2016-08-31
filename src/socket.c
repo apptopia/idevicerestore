@@ -27,7 +27,9 @@
 #include <unistd.h>
 #endif
 #include <errno.h>
+#ifndef _MSC_VER
 #include <sys/time.h>
+#endif
 #include <sys/stat.h>
 #ifdef WIN32
 #include <winsock2.h>
