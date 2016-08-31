@@ -40,7 +40,7 @@ static void fls_parse_elements(fls_file* fls)
 
 	fls_element* cur = NULL;
 	do {
-		void* p = fls->data + offset;
+		char* p = fls->data + offset;
 		uint32_t hdrsize = 0;
 		cur = (fls_element*)p;
 		if ((offset + cur->size) > fls->size) {
@@ -160,7 +160,7 @@ int fls_update_sig_blob(fls_file* fls, const unsigned char* sigdata, unsigned in
 
 	unsigned int i;
 	uint32_t offset = 0;
-	void* newdata = malloc(newsize);
+	char* newdata = malloc(newsize);
 	if (!newdata) {
 		error("ERROR: %s: out of memory\n", __func__);
 		return -1;
@@ -258,7 +258,7 @@ int fls_insert_ticket(fls_file* fls, const unsigned char* data, unsigned int siz
 	uint32_t newsize = fls->size + size + padding;
 	unsigned int i;
 	uint32_t offset = 0;
-	void* newdata = malloc(newsize);
+	char* newdata = malloc(newsize);
 	if (!newdata) {
 		error("ERROR: %s: out of memory\n", __func__);
 		return -1;

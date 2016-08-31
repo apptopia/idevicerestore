@@ -100,7 +100,7 @@ typedef struct {
 	} header;
 	uint32_t parsed_size;
 	uint32_t parsed_sig_offset;
-	void* data;
+	char* data;
 	uint32_t size;
 } mbn_file;
 
