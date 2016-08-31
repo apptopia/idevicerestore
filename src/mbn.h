@@ -3,6 +3,7 @@
  * support for .mbn file format (found in .bbfw files)
  *
  * Copyright (c) 2012 Nikias Bassen. All Rights Reserved.
+ * Copyright (c) 2016 Quamotion bvba. All Rights Reserved.
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -22,10 +23,12 @@
 #define MBN_H
 
 #include <stdint.h>
+#include "msc_compat.h"
 
 #define MBN_V1_MAGIC "\x0A\x00\x00\x00"
 #define MBN_V1_MAGIC_SIZE 4
 
+PACK(
 struct _mbn_header_v1 {
 	uint32_t type;           // the signed .mbn files have 0xA as value.
 	uint32_t unk_0x04;
@@ -37,12 +40,13 @@ struct _mbn_header_v1 {
 	uint32_t unk_0x1c;
 	uint32_t unk_0x20;
 	uint32_t unk_0x24;
-} __attribute__((packed));
+});
 typedef struct _mbn_header_v1 mbn_header_v1;
 
 #define MBN_V2_MAGIC "\xD1\xDC\x4B\x84\x34\x10\xD7\x73"
 #define MBN_V2_MAGIC_SIZE 8
 
+PACK(
 struct _mbn_header_v2 {
 	unsigned char magic1[8];
 	uint32_t unk_0x08;
@@ -63,7 +67,7 @@ struct _mbn_header_v2 {
 	uint32_t unk_0x44; // 0xFFFFFFFF
 	uint32_t unk_0x48; // 0xFFFFFFFF
 	uint32_t unk_0x4c; // 0xFFFFFFFF
-} __attribute__((packed));
+});
 typedef struct _mbn_header_v2 mbn_header_v2;
 
 #define BIN_MAGIC "\x7D\x04\x00\xEA\x6C\x69\x48\x55"
