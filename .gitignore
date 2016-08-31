@@ -35,7 +35,9 @@ py-compile
 stamp-h1
 src/.libs
 src/idevicerestore
+*.suo
 *.VC.db
 *.VC.opendb
+packages/
 x64/
 Win32/
