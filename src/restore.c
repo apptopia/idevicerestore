@@ -682,7 +682,7 @@ int restore_handle_status_msg(restored_client_t client, plist_t msg) {
 	node = plist_dict_get_item(msg, "AMRError");
 	if (node && plist_get_node_type(node) == PLIST_UINT) {
 		plist_get_uint_val(node, &value);
-		result = -value;
+		result = -(int)value;
 		if (result > 0) {
 			result = -result;
 		}
