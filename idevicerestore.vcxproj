@@ -146,6 +146,7 @@
     <ClInclude Include="src\limera1n_payload.h" />
     <ClInclude Include="src\locking.h" />
     <ClInclude Include="src\mbn.h" />
+    <ClInclude Include="src\msc_compat.h" />
     <ClInclude Include="src\normal.h" />
     <ClInclude Include="src\recovery.h" />
     <ClInclude Include="src\restore.h" />
