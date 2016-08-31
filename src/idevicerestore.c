@@ -26,6 +26,7 @@
 #endif
 
 #ifdef _MSC_VER
+#include "msc_compat.h"
 #define PACKAGE_URL "http://libimobiledevice.org"
 
 #define access _access

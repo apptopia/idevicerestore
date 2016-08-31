@@ -26,6 +26,8 @@
 #include <string.h>
 #ifndef _MSC_VER
 #include <unistd.h>
+#else
+#include "msc_compat.h"
 #endif
 #include <libimobiledevice/restore.h>
 #include <zip.h>
