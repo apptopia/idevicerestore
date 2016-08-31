@@ -25,6 +25,13 @@
 #include "config.h"
 #endif
 
+#ifdef _MSC_VER
+#define PACKAGE_URL "http://libimobiledevice.org"
+
+#define access _access
+#define F_OK 0
+#endif
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
