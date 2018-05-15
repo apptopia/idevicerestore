@@ -1,6 +1,7 @@
 *.suo
 *.VC.db
 *.VC.opendb
+*.user
 packages/
 x64/
 Win32/
