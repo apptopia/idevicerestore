@@ -85,9 +85,10 @@ typedef struct _bin_header bin_header;
 #define ELF_MAGIC "\x7F\x45\x4C\x46\x01\x01\x01\x00" // ELF magic, 32bit, little endian, SYSV
 #define ELF_MAGIC_SIZE 8
 
+PACK(
 struct _elf_header {
 	unsigned char magic[8];
-} __attribute__((packed));
+});
 typedef struct _elf_header elf_header;
 
 typedef struct {
