@@ -73,13 +73,14 @@ typedef struct _mbn_header_v2 mbn_header_v2;
 #define BIN_MAGIC "\x7D\x04\x00\xEA\x6C\x69\x48\x55"
 #define BIN_MAGIC_SIZE 8
 
+PACK(
 struct _bin_header {
 	unsigned char magic[8];
 	uint32_t unk_0x08;
 	uint32_t version;
 	uint32_t total_size; // size including header
 	uint32_t unk_0x14; // some offset
-} __attribute__((packed));
+});
 typedef struct _bin_header bin_header;
 
 #define ELF_MAGIC "\x7F\x45\x4C\x46\x01\x01\x01\x00" // ELF magic, 32bit, little endian, SYSV
