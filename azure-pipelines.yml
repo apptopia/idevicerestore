@@ -209,6 +209,9 @@ jobs:
   - script: |
       make install
     displayName: Install
+  - script: |
+      git archive --format tar.gz -o $BUILD_ARTIFACTSTAGINGDIRECTORY/idevicerestore/idevicerestore.orig.tar.gz $BUILD_SOURCEVERSION
+    displayName: Build source tarball
   - task: PublishBuildArtifacts@1
     inputs:
       pathtoPublish: '$(Build.ArtifactStagingDirectory)/idevicerestore'
