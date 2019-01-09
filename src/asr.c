@@ -324,7 +324,7 @@ int asr_handle_oob_data_request(asr_client_t asr, plist_t packet, FILE* file) {
 int asr_send_payload(asr_client_t asr, const char* filesystem) {
 	char data[ASR_PAYLOAD_PACKET_SIZE];
 	FILE* file = NULL;
-	off_t i, length, bytes = 0;
+	uint64_t i, length, bytes = 0;
 	double progress = 0;
 
 	file = fopen(filesystem, "rb");

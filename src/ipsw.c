@@ -60,7 +60,7 @@ ipsw_archive* ipsw_open(const char* ipsw) {
 	return archive;
 }
 
-int ipsw_get_file_size(const char* ipsw, const char* infile, off_t* size) {
+int ipsw_get_file_size(const char* ipsw, const char* infile, uint64_t* size) {
 	ipsw_archive* archive = ipsw_open(ipsw);
 	if (archive == NULL || archive->zip == NULL) {
 		error("ERROR: Invalid archive\n");
@@ -127,7 +127,7 @@ int ipsw_extract_to_file_with_progress(const char* ipsw, const char* infile, con
 		return -1;
 	}
 
-	off_t i, bytes = 0;
+	uint64_t i, bytes = 0;
 	int count, size = BUFSIZE;
 	double progress;
 	for(i = zstat.size; i > 0; i -= count) {
@@ -208,7 +208,7 @@ int ipsw_extract_to_memory(const char* ipsw, const char* infile, unsigned char**
 		return -1;
 	}
 
-	int size = zstat.size;
+	uint64_t size = zstat.size;
 	unsigned char* buffer = (unsigned char*) malloc(size+1);
 	if (buffer == NULL) {
 		error("ERROR: Out of memory\n");
