@@ -27,7 +27,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#ifndef _MSC_VER
 #include <unistd.h>
+#else
+#include <io.h>
+#ifndef R_OK
+#define R_OK 04
+#endif
+#ifndef PATH_MAX
+#define PATH_MAX _MAX_PATH
+#endif
+#ifndef S_ISDIR
+#define S_ISDIR(mode)  (((mode) & S_IFMT) == S_IFDIR)
+#endif
+#endif
 #include <errno.h>
 #include <limits.h>
 #include <sys/stat.h>
@@ -260,7 +273,7 @@ int ipsw_extract_to_file_with_progress(const char* ipsw, const char* infile, con
 				uint64_t bytes = 0;
 				double progress;
 				while (!feof(fi)) {
-					ssize_t r = fread(buffer, 1, BUFSIZE, fi);
+					size_t r = fread(buffer, 1, BUFSIZE, fi);
 					if (r < 0) {
 						error("ERROR: fread failed: %s\n", strerror(errno));
 						ret = -1;

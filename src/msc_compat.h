@@ -31,4 +31,5 @@
 #define strcasecmp _stricmp
 #define fseeko _fseeki64
 #define ftello _ftelli64
+#define PACKAGE_VERSION "1.0.0"
 #endif

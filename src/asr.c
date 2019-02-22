@@ -27,6 +27,7 @@
 #ifndef _MSC_VER
 #include <unistd.h>
 #else
+#include <io.h>
 #include "msc_compat.h"
 #endif
 #include <errno.h>
@@ -51,7 +52,6 @@ int asr_open_with_timeout(idevice_t device, asr_client_t* asr) {
 	int attempts = 10;
 	idevice_connection_t connection = NULL;
 	idevice_error_t device_error = IDEVICE_E_SUCCESS;
-
 	*asr = NULL;
 
 	if (device == NULL) {
